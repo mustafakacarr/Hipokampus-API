@@ -22,7 +22,3 @@ This repository frequently will be updated.
 - [@mustafakacarr](https://github.com/mustafakacarr)
 
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-

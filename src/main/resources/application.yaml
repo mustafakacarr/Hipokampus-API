@@ -1,2 +1,10 @@
 server:
   port: 4885
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:2990/hk_api
+    username: postgres
+    password: 6124358
+  jpa:
+    hibernate:
+      ddl-auto: update
