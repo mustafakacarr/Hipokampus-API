@@ -1,4 +1,4 @@
-package com.tr.hipokampus.ws.UserController;
+package com.tr.hipokampus.ws.controller;
 
 import com.tr.hipokampus.ws.common.ApiError;
 import com.tr.hipokampus.ws.common.GenericResponse;
