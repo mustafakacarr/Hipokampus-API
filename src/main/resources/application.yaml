@@ -5,6 +5,12 @@ spring:
     url: jdbc:postgresql://localhost:2990/hk_api
     username: postgres
     password: 6124358
+
   jpa:
     hibernate:
       ddl-auto: update
+    properties:
+      jakarta:
+        persistence:
+          validation:
+            mode: none
