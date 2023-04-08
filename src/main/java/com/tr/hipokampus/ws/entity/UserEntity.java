@@ -23,7 +23,7 @@ public class UserEntity {
     @NotBlank
     private String name;
     @NotNull
-    @Size(min = 4,max = 10)
+    @Size(min = 4,max = 15)
     @UniqueUsername
     private String username;
     @NotNull
