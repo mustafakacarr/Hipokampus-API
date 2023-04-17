@@ -1,6 +1,6 @@
 package com.tr.hipokampus.ws.auth;
 
-import com.tr.hipokampus.ws.entity.UserEntity;
+import com.tr.hipokampus.ws.entity.User;
 import com.tr.hipokampus.ws.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +14,7 @@ public class UserAuthService implements UserDetailsService {
     UserRepository userRepository;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-       UserEntity user = userRepository.findByUsername(username);
+       User user = userRepository.findByUsername(username);
         if(user==null){
             throw new UsernameNotFoundException("Username not found!");
         }else {

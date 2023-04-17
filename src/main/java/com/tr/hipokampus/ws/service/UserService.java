@@ -1,13 +1,13 @@
 package com.tr.hipokampus.ws.service;
 
-import com.tr.hipokampus.ws.entity.UserEntity;
+import com.tr.hipokampus.ws.entity.User;
 
 import com.tr.hipokampus.ws.repository.UserRepository;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 
 @Service
@@ -23,9 +23,23 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void createUser(UserEntity user) {
+    public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
+    }
+
+    public User updateUser(long userId, User newUser){
+       Optional<User> user= userRepository.findById(userId);
+       if(user.isPresent()){
+           User foundUser = user.get();
+           foundUser.setName(newUser.getName());
+           foundUser.setUsername(newUser.getUsername());
+           foundUser.setPhone(newUser.getPhone());
+           foundUser.setEmail(newUser.getPhone());
+           return userRepository.save(foundUser);
+       }else {
+           return null;
+       }
     }
 }

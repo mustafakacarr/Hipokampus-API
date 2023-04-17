@@ -1,18 +1,17 @@
 package com.tr.hipokampus.ws.auth;
 
-import com.tr.hipokampus.ws.entity.UserEntity;
+import com.tr.hipokampus.ws.entity.User;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class HKUserDetails implements UserDetails {
-    UserEntity user;
-    public UserEntity getUser() {
+    User user;
+    public User getUser() {
         return user;
     }
-    public HKUserDetails(UserEntity user) {
+    public HKUserDetails(User user) {
         this.user=user;
     }
 
