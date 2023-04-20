@@ -1,15 +1,15 @@
 package com.tr.hipokampus.ws.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tr.hipokampus.ws.annotation.UniqueUsername;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+
+import java.util.List;
 
 
 @Data
@@ -33,5 +33,10 @@ public class User {
         + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
     private String email;
     private String phone;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+
+    private List<InvoiceDetail> invoiceDetails;
 
 }

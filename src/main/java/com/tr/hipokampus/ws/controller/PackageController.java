@@ -29,7 +29,7 @@ public class PackageController {
         return packageService.deletePackage(packageId);
     }
     @GetMapping( "/{packageId}")
-    public PackageResponse getPackage(@PathVariable long packageId) {
+    public PackageDetail getPackage(@PathVariable long packageId) {
         return packageService.getPackage(packageId);
     }
 }

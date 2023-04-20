@@ -7,6 +7,7 @@ import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -41,5 +42,9 @@ public class UserService {
        }else {
            return null;
        }
+    }
+
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 }

@@ -15,7 +15,7 @@ public class AuthController {
     public ResponseEntity handleAuthentication(){
         HKUserDetails userdetails= (HKUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user=userdetails.getUser();
-        UserResponse userResponse=new UserResponse(user.getName(),user.getUsername(),user.getEmail(),user.getPhone());
+        UserResponse userResponse=new UserResponse(user.getId(),user.getName(),user.getUsername(),user.getEmail(),user.getPhone());
         return ResponseEntity.ok().body(userResponse);
     }
 

@@ -50,13 +50,10 @@ public class PackageService {
         return true;
     }
 
-
-
-
-    public PackageResponse getPackage(long packageId) {
+    public PackageDetail getPackage(long packageId) {
         Optional<PackageDetail> packageDetail=packageDetailRepository.findById(packageId);
         if(packageDetail.isPresent()){
-            return new PackageResponse(packageDetail.get(),packageDetail.get().getPriceList());
+            return packageDetail.get();
         }else {
             return null;
         }
@@ -64,6 +61,5 @@ public class PackageService {
 
     public List<PackageDetail> getAllPackage() {
     return packageDetailRepository.findAll();
-
     }
 }

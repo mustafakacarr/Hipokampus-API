@@ -13,12 +13,11 @@ public class PackagePrice {
     @GeneratedValue()
     private long Id;
 
-
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="period_id", nullable=false)
     private PackagePeriod period;
     @NotNull
-    private int price;
+    private double price;
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="packages_id", nullable=false)

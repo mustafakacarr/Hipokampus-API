@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1.0/users/")
 public class UserController {
@@ -24,4 +26,9 @@ public class UserController {
        userService.updateUser(userId,newUser);
         return new GenericResponse("user succesfully updated!");
     }
+
+@GetMapping
+    public List<User> getUsers(){
+        return userService.getUsers();
+}
 }
